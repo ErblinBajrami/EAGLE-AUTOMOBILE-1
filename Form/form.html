@@ -81,7 +81,12 @@
         </form>
       </div>
     </div>
+
+
+<!-- skriptat per animation deh validim -->
+
     <script>
+// amination
       var x = document.getElementById("login");
       var y = document.getElementById("register");
       var z = document.getElementById("btn");
@@ -97,6 +102,35 @@
         y.style.left = "450px";
         z.style.left = "0";
       }
+
+// validimi
+      function login(){
+        let username = document.getElementById("username").value
+        let password = document.getElementById("password").value
+        let country = document.getElementById("country").value
+        let email = document.getElementById("email").value
+
+        if(username.value === ""){
+            alert("Shenoni usernamin")
+        }
+        if(password.value === ""){
+            alert("Shenoni passwordin")
+        }
+        if(country.value === ""){
+            alert("Shenoni countryin")
+        }
+        if(!checkemail(email)){
+            alert("Email juaj eshte gabim")
+        }
+
+    }
+
+    function checkemail(email){
+        const regex=/^([A-Za-z0-9-.])+@([A-Za-z0-9-.])+.([A-Za-z]{2,4})$/;
+        return regex.test(email)
+    }
+
+
     </script>
   </body>
 </html>
