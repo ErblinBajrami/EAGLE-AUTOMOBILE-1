@@ -428,8 +428,8 @@ input[type="submit"]:hover {
 /* footer style */
 
 footer {
-  background-color: #333;
-  color: white;
+  background-color: #e0d9d9;
+  color: rgb(0, 0, 0);
   padding: 20px 0;
 }
 
@@ -455,14 +455,14 @@ footer {
 }
 
 .footer-nav ul li a {
-  color: white;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
 .social-links a {
   display: inline-block;
   margin-right: 15px;
-  color: white;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
