@@ -35,7 +35,7 @@
           <img src="/Images/tw.png" alt="" />
         </div>
 
-        <form id="login" class="input-group">
+        <form id="login" class="input-group" onsubmit="return validateLoginForm()">
           <input
             type="text"
             class="input-field"
@@ -43,7 +43,7 @@
             required
           />
           <input
-            type="text"
+            type="password"
             class="input-field"
             placeholder="Enter Password"
             required
@@ -55,7 +55,7 @@
           
         </form>
 
-        <form id="register" class="input-group">
+        <form id="register" class="input-group" onsubmit="return validateRegisterForm()">
           <input
             type="text"
             class="input-field"
@@ -69,7 +69,7 @@
             required
           />
           <input
-            type="text"
+            type="password"
             class="input-field"
             placeholder="Enter Password"
             required
@@ -103,32 +103,75 @@
         z.style.left = "0";
       }
 
-// validimi
-      function login(){
-        let username = document.getElementById("username").value
-        let password = document.getElementById("password").value
-        let country = document.getElementById("country").value
-        let email = document.getElementById("email").value
+// validimi i suhtrimeve
+    //   function login(){
+    //     let username = document.getElementById("username").value
+    //     let password = document.getElementById("password").value
+    //     let country = document.getElementById("country").value
+    //     let email = document.getElementById("email").value
 
-        if(username.value === ""){
-            alert("Shenoni usernamin")
-        }
-        if(password.value === ""){
-            alert("Shenoni passwordin")
-        }
-        if(country.value === ""){
-            alert("Shenoni countryin")
-        }
-        if(!checkemail(email)){
-            alert("Email juaj eshte gabim")
-        }
+    //     if(username.value === ""){
+    //         alert("Shenoni usernamin")
+    //     }
+    //     if(password.value === ""){
+    //         alert("Shenoni passwordin")
+    //     }
+    //     if(country.value === ""){
+    //         alert("Shenoni countryin")
+    //     }
+    //     if(!checkemail(email)){
+    //         alert("Email juaj eshte gabim")
+    //     }
 
-    }
+    // }
 
-    function checkemail(email){
-        const regex=/^([A-Za-z0-9-.])+@([A-Za-z0-9-.])+.([A-Za-z]{2,4})$/;
-        return regex.test(email)
-    }
+    // function checkemail(email){
+    //     const regex=/^([A-Za-z0-9-.])+@([A-Za-z0-9-.])+.([A-Za-z]{2,4})$/;
+    //     return regex.test(email)
+    // }
+
+
+    // funksioni i validimit te emailit
+function isValidEmail(email) {
+  const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return re.test(String(email).toLowerCase());
+}
+
+//funksioni i validimit te Login formes
+function validateLoginForm() {
+  let userId = document.querySelector('#login .input-field[type="text"]').value;
+  let password = document.querySelector('#login .input-field[type="password"]').value;
+
+  if (!userId || !password) {
+    alert("Please fill out all fields in the login form.");
+    return false;
+  }
+
+  // Additional login validations can go here
+  
+  return true;
+}
+
+// fuknsioni i validimit te register formes
+function validateRegisterForm() {
+  let userId = document.querySelector('#register .input-field[type="text"]').value;
+  let email = document.querySelector('#register .input-field[type="email"]').value;
+  let password = document.querySelector('#register .input-field[type="password"]').value;
+
+  if (!userId || !email || !password) {
+    alert("Please fill out all fields in the registration form.");
+    return false;
+  }
+
+  if (!isValidEmail(email)) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+
+  // validime shtese
+  
+  return true;
+}
 
 
     </script>
